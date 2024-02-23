@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_expenses/data/myexpenses.dart';
+import 'package:flutter_expenses/widgets/expense_list.dart';
 
 class ExpensesHome extends StatefulWidget {
   const ExpensesHome({super.key});
@@ -14,14 +16,17 @@ class _ExpensesHomeState extends State<ExpensesHome> {
       appBar: AppBar(
         title: const Text("Flutter Expenses"),
       ),
-      body: const Column(
+      body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               "Gráficos!",
             ),
-            Text("Lista de gastos...")
+            Expanded(
+                child: ExpenseList(
+              expenses: myExpenses,
+            )),
           ]),
     );
   }
